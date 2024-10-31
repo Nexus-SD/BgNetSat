@@ -12,18 +12,37 @@ body,
   color: blue !important;
 }
 
+.video-background {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ajusta a altura para cobrir a viewport */
+  overflow: hidden;
+}
+
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz o vídeo cobrir todo o contêiner */
+  transform: translate(-50%, -50%);
+  z-index: -1; /* Garante que o vídeo fique atrás do conteúdo */
+}
+
+.content {
+  position: relative;
+  z-index: 1; /* Mantém o conteúdo acima do vídeo */
+  color: white;
+  text-align: center;
+  /* Outros estilos de conteúdo, como padding e margem, podem ser ajustados conforme necessário */
+}
+
 #cover {
-  background: url("https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   background-size: cover !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
-}
-
-.fixed-top {
-  max-width: 1140px;
-  margin: 20px auto;
-  transition: 0.2 all linear;
 }
 
 h1 {
@@ -45,7 +64,7 @@ h2 {
 
 .btn-primary {
   font-family: 'Montserrat', sans-serif !important;
-  background-color: #fed136 !important;
+  background-color: #2D92CA !important;
   border-style: none !important;
   font-size: 18px !important;
   padding: 20px 40px !important;
@@ -54,7 +73,7 @@ h2 {
 
 .btn-primary:hover {
   background-color: #fff !important;
-  color: #fed136 !important;
+  color: #2D92CA !important;
 }
 
 a.nav-link {
@@ -69,7 +88,7 @@ a.nav-link {
 }
 
 a.nav-link:hover {
-  color: #fed136 !important;
+  color: #2D92CA !important;
 }
 
 /* Services */
@@ -91,8 +110,7 @@ a.nav-link:hover {
 .services-top p,
 .portfolio-top p,
 .aboutUs-top p,
-.team-top p,
-.contact-top p {
+.team-top p{
   font-family: 'Lora', serif;
   font-style: italic;
   font-size: 16px;
@@ -100,8 +118,16 @@ a.nav-link:hover {
   margin-bottom: 70px;
 }
 
+.contact-top p {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
 .item-circle {
-  border: 3px solid #fed136;
+  border: 3px solid #2D92CA;
   width: 100px;
   height: 100px;
   margin: 0 auto;
@@ -111,13 +137,13 @@ a.nav-link:hover {
 }
 
 .services-content i {
-  color: #fed136;
+  color: #2D92CA;
   line-height: 100px;
   transition: .4s;
 }
 
 .item-circle:hover {
-  background: #fed136;
+  background: #2D92CA;
   border: 3px solid #262626;
 }
 
@@ -211,7 +237,7 @@ a.nav-link:hover {
   content: "";
   width: 200px;
   height: 200px;
-  background: #fed136;
+  background: #2D92CA;
   border-radius: 50%;
   border: 7px solid #f1f1f1;
   left: 50%;
@@ -304,18 +330,14 @@ a.nav-link:hover {
   padding: 120px 0px;
 }
 
-.contact-top h3 {
-  color: #fff;
-}
-
 #name,
 #email,
 #subject {
   width: 90%;
   height: 50px;
   text-indent: 15px;
-  border-style: none;
-  border-radius: 3px;
+  border-style: solid;
+  border-radius: 5px;
   margin-left: 5%;
 }
 
@@ -359,6 +381,27 @@ textarea {
   color: #fff;
 }
 
+.contact-icons {
+  margin-bottom: 40px;
+  padding-left: 0px;
+}
+
+.contact-social-icon {
+  display: inline;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #fff;
+}
+
+.contact-social-icon i {
+  background: #262626;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 .company-social-icon i {
   background: #262626;
   width: 40px;
@@ -368,10 +411,20 @@ textarea {
   cursor: pointer;
 }
 
-.change-fixed-top {
+.logo {
+  position: relative; /* Permite que o deslocamento da logo seja ajustado */
+  transition: transform 0.5s ease; /* Controla a transição do movimento da logo */
+  margin-left: 20px;
+}
+
+.scrolled .logo {
+  transform: translateY(-20px); /* Ajuste este valor conforme necessário */
+}
+
+.fixed-top {
   margin-top: 0px;
-  background: #000;
   max-width: 2000px;
+  background: linear-gradient(0deg, rgba(36, 36, 36, 0.24) -6.97%, rgba(59, 59, 59, 0.027) 0.49%, #161616b4 89.05%);
 }
 
 /* Bootstrap media 1 */
@@ -409,7 +462,7 @@ textarea {
   }
 
   .navbar-light .navbar-toggler {
-    border: 1px solid #fed136
+    border: 1px solid #2D92CA
   }
 
   h1 {
@@ -425,7 +478,7 @@ textarea {
   }
 
   .navbar-toggler {
-    background: #fed136 !important;
+    background: #2D92CA !important;
     outline: none !important;
     border: none !important;
   }
@@ -463,7 +516,7 @@ textarea {
   }
 
   .navbar-toggler {
-    background: #fed136 !important;
+    background: #2D92CA !important;
     outline: none !important;
     border: none !important;
   }
